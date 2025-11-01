@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive CSS and HTML cheat sheet for full-stack developers">
+    <title>CSS & HTML Cheat Sheet - Full-Stack Developer Reference</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+    <header>
+        <h1>CSS & HTML Cheat Sheet</h1>
+        <p class="subtitle">Full-Stack Developer Reference</p>
+        <p class="source-note">All information sourced from <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul class="nav-menu">
+            <li><a href="#html-basics">HTML Basics</a></li>
+            <li><a href="#html-semantic">Semantic HTML</a></li>
+            <li><a href="#css-basics">CSS Basics</a></li>
+            <li><a href="#css-layout">Layout</a></li>
+            <li><a href="#css-flexbox">Flexbox</a></li>
+            <li><a href="#css-grid">Grid</a></li>
+            <li><a href="#css-responsive">Responsive Design</a></li>
+            <li><a href="#css-forms">Forms</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- HTML Basics Section -->
+        <section id="html-basics" class="section">
+            <h2>HTML Basics</h2>
+            
+            <article>
+                <h3>Document Structure</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Element</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                            <td>Must be the first line. Tells the browser this is an HTML5 document. Required for proper rendering and validation. Without it, browsers may use quirks mode.</td>
+                            <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;html lang="en"&gt;</code></td>
+                            <td>The root element that wraps all HTML content. The lang attribute specifies the page language for screen readers and search engines. Always include it for accessibility.</td>
+                            <td><code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;head&gt;</code></td>
+                            <td>Container for metadata that isn't displayed on the page. Contains title, meta tags, links to CSS/JS files. Not visible to users but crucial for SEO and functionality.</td>
+                            <td><code>&lt;head&gt;&lt;title&gt;Page&lt;/title&gt;&lt;/head&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>Contains all visible content shown to users - text, images, links, etc. Everything you want users to see goes inside the body tag.</td>
+                            <td><code>&lt;body&gt;Content&lt;/body&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+                            <td>Defines character encoding (how text is interpreted). UTF-8 supports all characters and languages. Place in &lt;head&gt; within first 1024 bytes. Prevents garbled text.</td>
+                            <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;meta name="viewport"&gt;</code></td>
+                            <td>Controls mobile rendering. Prevents mobile browsers from zooming out to show desktop width. Essential for responsive design. width=device-width makes content fit the screen.</td>
+                            <td><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Text Elements</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Element</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                            <td>Hierarchical headings from most important (h1) to least (h6). Use ONE h1 per page for main title. Creates document outline for SEO and screen readers. Never skip levels (h1 to h3 is wrong).</td>
+                            <td><code>&lt;h1&gt;Main Title&lt;/h1&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;p&gt;</code></td>
+                            <td>Creates a paragraph block with spacing above/below. Use for body text. Browsers add default margins. Groups related sentences together semantically.</td>
+                            <td><code>&lt;p&gt;Paragraph text&lt;/p&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;strong&gt;</code></td>
+                            <td>Semantically marks text as important/urgent. Renders bold by default but also tells screen readers to emphasize. Use instead of &lt;b&gt; tag for better accessibility.</td>
+                            <td><code>&lt;strong&gt;Important&lt;/strong&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;em&gt;</code></td>
+                            <td>Semantically emphasizes text (like stress in speech). Renders italic by default. Screen readers change tone. Use instead of &lt;i&gt; tag for better meaning.</td>
+                            <td><code>&lt;em&gt;Emphasized&lt;/em&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;br&gt;</code></td>
+                            <td>Forces a line break without creating a new paragraph. Self-closing tag. Use sparingly - prefer &lt;p&gt; for paragraphs. Good for addresses, poetry, or single-line breaks.</td>
+                            <td><code>Line 1&lt;br&gt;Line 2</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;code&gt;</code></td>
+                            <td>Marks inline code snippets (like variable names, function calls). Renders in monospace font. Use for code within text. For code blocks, use &lt;pre&gt;&lt;code&gt; together.</td>
+                            <td><code>&lt;code&gt;variable&lt;/code&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;pre&gt;</code></td>
+                            <td>Preformatted text that preserves spaces, line breaks, and indentation. Usually combined with &lt;code&gt; for code blocks. Respects all whitespace - useful for code examples, ASCII art.</td>
+                            <td><code>&lt;pre&gt;Code block&lt;/pre&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Links & Media</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Element</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Attributes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;a&gt;</code></td>
+                            <td>Creates clickable hyperlinks to other pages, files, or sections. href attribute is required for navigation. Use target="_blank" for new tabs. rel="noopener" prevents security issues with external links.</td>
+                            <td><code>href</code>, <code>target</code>, <code>rel</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Embeds images. src is required (image URL/path). alt is required for accessibility - describes image to screen readers. width/height prevent layout shift. Self-closing tag.</td>
+                            <td><code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;video&gt;</code></td>
+                            <td>Embeds video players. src points to video file. controls adds play/pause buttons. autoplay starts automatically (usually blocked by browsers). Supports multiple formats with &lt;source&gt; tags.</td>
+                            <td><code>src</code>, <code>controls</code>, <code>autoplay</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;audio&gt;</code></td>
+                            <td>Embeds audio players for music, podcasts, sound effects. src points to audio file. controls adds play/pause. Similar structure to &lt;video&gt; but without visual display area.</td>
+                            <td><code>src</code>, <code>controls</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Lists</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Element</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;ul&gt;</code></td>
+                            <td>Creates an unordered (bulleted) list. Use for items without specific order (shopping lists, navigation menus). Each &lt;li&gt; becomes a bullet point. Can be styled with CSS to remove bullets or change appearance.</td>
+                            <td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;ol&gt;</code></td>
+                            <td>Creates an ordered (numbered) list. Use when sequence matters (instructions, rankings). Numbers automatically increment. Can change numbering style with CSS or type attribute.</td>
+                            <td><code>&lt;ol&gt;&lt;li&gt;First&lt;/li&gt;&lt;/ol&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;li&gt;</code></td>
+                            <td>Represents one item in a list. Must be direct child of &lt;ul&gt;, &lt;ol&gt;, or &lt;menu&gt;. Can contain other elements (links, images, nested lists). Browsers add default spacing.</td>
+                            <td><code>&lt;li&gt;List item&lt;/li&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;dl&gt;</code></td>
+                            <td>Description list for term-definition pairs (like a dictionary). &lt;dt&gt; is the term, &lt;dd&gt; is the definition/description. Great for glossaries, metadata, FAQ sections.</td>
+                            <td><code>&lt;dl&gt;&lt;dt&gt;Term&lt;/dt&gt;&lt;dd&gt;Description&lt;/dd&gt;&lt;/dl&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <!-- Semantic HTML Section -->
+        <section id="html-semantic" class="section">
+            <h2>Semantic HTML</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Element</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td>Introductory content at the top of a page or section. Often contains logo, site title, navigation. Can appear multiple times (page header, article header). Improves SEO and accessibility.</td>
+                        <td>Introductory content, site navigation</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td>Marks navigation sections (menus, table of contents, pagination). Use for major navigation blocks, not every link group. Screen readers use this to skip to navigation. Helps with semantic structure.</td>
+                        <td>Navigation links</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td>Wraps the primary, unique content of the page. Should appear once per page (not in headers/footers). Helps screen readers jump to main content. All visible primary content goes here.</td>
+                        <td>Primary content of the page</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td>Independent, self-contained content that makes sense on its own (blog post, news article, comment, widget). Can be nested. Good for syndication/RSS feeds. Distinguishable content piece.</td>
+                        <td>Independent, self-contained content</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;section&gt;</code></td>
+                        <td>Thematic grouping of related content, usually with a heading. More generic than &lt;article&gt;. Use when content is part of a larger whole. Example: chapters, tab panels, grouped content areas.</td>
+                        <td>Thematic grouping of content</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;aside&gt;</code></td>
+                        <td>Content indirectly related to main content (sidebars, pull quotes, advertisements, related links). Can be styled separately. Screen readers may treat it as complementary information.</td>
+                        <td>Sidebar content, tangentially related</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;footer&gt;</code></td>
+                        <td>Footer information for nearest ancestor (page or section). Typically contains copyright, contact info, links, author credits. Can appear multiple times per page. Important for document structure.</td>
+                        <td>Footer information, copyright</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figure&gt;</code></td>
+                        <td>Groups self-contained content (images, diagrams, code blocks) with optional caption. Content can be moved without affecting document flow. Often contains &lt;img&gt; or &lt;code&gt; with &lt;figcaption&gt;.</td>
+                        <td>Self-contained content (images, diagrams)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figcaption&gt;</code></td>
+                        <td>Provides caption/legend for &lt;figure&gt;. Should be first or last child of &lt;figure&gt;. Describes or explains the figure content. Improves accessibility and context for images/diagrams.</td>
+                        <td>Caption for figure element</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;time&gt;</code></td>
+                        <td>Represents time/date in machine-readable format. datetime attribute enables parsing by browsers/search engines. Useful for events, publication dates, schedules. Improves SEO and accessibility.</td>
+                        <td>Machine-readable date/time</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CSS Basics Section -->
+        <section id="css-basics" class="section">
+            <h2>CSS Basics</h2>
+            
+            <article>
+                <h3>Selectors</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Selector</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>element</code></td>
+                            <td>Targets all elements of that type. Low specificity. Use for base styles (body, p, h1). Example: p selects all paragraphs on the page.</td>
+                            <td><code>p { color: red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>.class</code></td>
+                            <td>Targets elements with that class. Reusable - multiple elements can share a class. Use for styling groups of elements. Higher specificity than element selector. Most common selector type.</td>
+                            <td><code>.container { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>#id</code></td>
+                            <td>Targets unique element by ID. Highest specificity. Use sparingly - IDs should be unique per page. Good for one-off styling or JavaScript targeting. Avoid for styling (use class instead).</td>
+                            <td><code>#header { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>selector, selector</code></td>
+                            <td>Groups multiple selectors to apply same styles. Comma separates selectors. Use to avoid repeating styles. Example: applies styles to both h1 and h2 elements.</td>
+                            <td><code>h1, h2 { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>parent child</code></td>
+                            <td>Descendant selector - targets child elements at any nesting level. Space separates parent and child. Matches all descendants, not just direct children. Example: selects all paragraphs inside divs, regardless of nesting.</td>
+                            <td><code>div p { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>parent &gt; child</code></td>
+                            <td>Direct child selector - only immediate children, not grandchildren. More specific than descendant. Use when you need precise targeting. &gt; symbol required. Example: only direct list items, not nested ones.</td>
+                            <td><code>ul &gt; li { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>element:hover</code></td>
+                            <td>Pseudo-class that applies styles when mouse hovers over element. Creates interactive feedback. Common for links, buttons. Use for better UX - shows elements are clickable.</td>
+                            <td><code>a:hover { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>element::before</code></td>
+                            <td>Pseudo-element that inserts content before element. Requires content property. Useful for icons, decorative elements, quotes. Can add content without HTML. ::before (double colon) is modern syntax.</td>
+                            <td><code>p::before { content: ""; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Common Properties</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>color</code></td>
+                            <td>Sets the text color (foreground). Use hex (#ff0000), rgb(), rgba(), or named colors. Contrast with background must meet WCAG standards for accessibility. Inherits by default.</td>
+                            <td><code>#hex</code>, <code>rgb()</code>, <code>named</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-color</code></td>
+                            <td>Sets the background color behind content. Doesn't affect border or margin. Use transparent to make transparent. Can layer with background-image. Important for readability.</td>
+                            <td><code>#hex</code>, <code>rgb()</code>, <code>transparent</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-family</code></td>
+                            <td>Defines which font to use. Provide fallbacks (comma-separated). Last should be generic (sans-serif, serif, monospace). Fonts without fallbacks may fail to load.</td>
+                            <td><code>Arial</code>, <code>sans-serif</code>, <code>serif</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-size</code></td>
+                            <td>Sets text size. px = fixed size, em = relative to parent, rem = relative to root (16px default), % = relative to parent. Use rem for responsive typography. 16px is readable base size.</td>
+                            <td><code>16px</code>, <code>1em</code>, <code>100%</code>, <code>1rem</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-weight</code></td>
+                            <td>Controls text thickness. normal (400) or bold (700) are most common. 100-900 range for variable fonts. bold makes text thicker, lighter values make thinner. Affects readability.</td>
+                            <td><code>normal</code>, <code>bold</code>, <code>100-900</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-align</code></td>
+                            <td>Horizontally aligns text within element. left (default), center, right, justify. Applies to inline content. justify spreads words to fill width (can look awkward).</td>
+                            <td><code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-decoration</code></td>
+                            <td>Adds/removes text decoration lines. none removes underlines (common on links). underline, overline, line-through available. Can combine with color. Use for links, emphasis.</td>
+                            <td><code>none</code>, <code>underline</code>, <code>line-through</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>line-height</code></td>
+                            <td>Sets space between lines (leading). Unitless numbers (1.5) are best - multiply font-size. Affects readability. 1.5-1.6 is comfortable. Too tight = cramped, too loose = hard to read.</td>
+                            <td><code>1.5</code>, <code>24px</code>, <code>150%</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>width</code></td>
+                            <td>Sets element width. px = fixed, % = relative to parent, auto = browser calculates. Default varies by display type. Can cause overflow if too large for container.</td>
+                            <td><code>100px</code>, <code>50%</code>, <code>auto</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>height</code></td>
+                            <td>Sets element height. Similar to width. Avoid fixed heights - let content determine (auto). vh = viewport height. Can cause scrolling issues if content overflows.</td>
+                            <td><code>100px</code>, <code>50vh</code>, <code>auto</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>margin</code></td>
+                            <td>Space outside element (between elements). Shorthand: top right bottom left. auto centers block elements. Negative values allowed. Collapses with adjacent margins. Creates visual breathing room.</td>
+                            <td><code>10px</code>, <code>10px 20px</code>, <code>auto</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>padding</code></td>
+                            <td>Space inside element (between border and content). Shorthand: top right bottom left. Background color applies to padding area. Creates internal spacing, makes content less cramped.</td>
+                            <td><code>10px</code>, <code>10px 20px</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>border</code></td>
+                            <td>Shorthand for border-width style color. Adds visible border around element. Common: 1px solid #000. Separates elements visually. Can be styled per side (border-top, etc.).</td>
+                            <td><code>1px solid #000</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>border-radius</code></td>
+                            <td>Rounds element corners. 50% makes circle (on square element). px or % values. Modern look, softer appearance. Can specify each corner separately. Creates pill/card shapes.</td>
+                            <td><code>5px</code>, <code>50%</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>box-shadow</code></td>
+                            <td>Creates shadow behind element. Syntax: offset-x offset-y blur spread color. Creates depth, elevation effect. inset makes inner shadow. Multiple shadows possible (comma-separated). Modern, professional look.</td>
+                            <td><code>2px 2px 4px rgba(0,0,0,0.2)</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>opacity</code></td>
+                            <td>Makes element transparent (0 = invisible, 1 = opaque). Affects entire element including children. Use rgba() for background-only transparency. Useful for overlays, hover effects, fading.</td>
+                            <td><code>0.5</code>, <code>1</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>display</code></td>
+                            <td>Controls how element renders. block = full width, new line. inline = wraps with content, no width/height. flex/grid = modern layouts. none = hidden, removed from flow. Fundamental property.</td>
+                            <td><code>block</code>, <code>inline</code>, <code>flex</code>, <code>grid</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>position</code></td>
+                            <td>Controls positioning method. static = normal flow. relative = offset from normal position. absolute = relative to nearest positioned ancestor. fixed = relative to viewport. sticky = hybrid scroll behavior.</td>
+                            <td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>z-index</code></td>
+                            <td>Controls stacking order (which element appears on top). Higher numbers = above. Only works on positioned elements (not static). Use for overlays, modals, dropdowns. Can create stacking contexts.</td>
+                            <td><code>1</code>, <code>-1</code>, <code>auto</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <!-- CSS Layout Section -->
+        <section id="css-layout" class="section">
+            <h2>CSS Layout</h2>
+            <table>
+          <thead>
+            <tr>
+                        <th scope="col">Property</th>
+              <th scope="col">Description</th>
+                        <th scope="col">Common Values</th>
+          </tr>
+        </thead>
+          <tbody>
+                    <tr>
+                        <td><code>display</code></td>
+                        <td>Fundamental property controlling layout. block = stacks vertically, full width. inline = flows horizontally, content width. inline-block = inline with block features. flex/grid = modern layouts. none = completely hidden.</td>
+                        <td><code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>flex</code>, <code>grid</code>, <code>none</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>position</code></td>
+                        <td>Changes positioning context. static = default, normal flow. relative = can offset from original position. absolute = positioned relative to nearest positioned parent. fixed = stays in viewport when scrolling. sticky = sticks when scrolling past.</td>
+                        <td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>top, right, bottom, left</code></td>
+                        <td>Offset positioned elements from their position context. top/right/bottom/left specify distance. Use with relative, absolute, fixed, sticky. Negative values allowed. auto = browser calculates. Creates precise positioning.</td>
+                        <td><code>0</code>, <code>10px</code>, <code>50%</code>, <code>auto</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>Legacy layout method - floats element left/right. Text wraps around. Was primary layout tool before flexbox/grid. Still useful for images in text, but avoid for page layouts. Creates float context.</td>
+                        <td><code>left</code>, <code>right</code>, <code>none</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>clear</code></td>
+                        <td>Prevents element from sitting next to floated elements. Forces element below floats. Use to "clear" floats - make element start on new line after floated content. both = clears both sides. Needed in old float layouts.</td>
+                        <td><code>left</code>, <code>right</code>, <code>both</code>, <code>none</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>overflow</code></td>
+                        <td>Controls what happens when content exceeds container size. visible = content shows outside (default). hidden = clips overflow. scroll = always shows scrollbar. auto = scrollbar only when needed. Prevents layout breaking.</td>
+                        <td><code>visible</code>, <code>hidden</code>, <code>scroll</code>, <code>auto</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>overflow-x, overflow-y</code></td>
+                        <td>Controls horizontal (x) or vertical (y) overflow separately. Useful when you want different behavior per axis. Example: horizontal scroll, vertical hidden. Prevents unwanted scrolling in one direction.</td>
+                        <td><code>hidden</code>, <code>scroll</code>, <code>auto</code></td>
+                    </tr>
+          </tbody>
+        </table>
+        </section>
+
+        <!-- Flexbox Section -->
+        <section id="css-flexbox" class="section">
+            <h2>CSS Flexbox</h2>
+            
+            <article>
+                <h3>Container Properties</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>display: flex</code></td>
+                            <td>Creates a flexbox container. Children become flex items arranged along main axis. flex = block container, inline-flex = inline container. Modern, powerful layout method. Replaces float-based layouts.</td>
+                            <td><code>flex</code>, <code>inline-flex</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-direction</code></td>
+                            <td>Sets main axis direction (how items flow). row = horizontal (left to right). column = vertical (top to bottom). -reverse = reverses order. Determines which axis is "main" vs "cross". Default: row.</td>
+                            <td><code>row</code>, <code>column</code>, <code>row-reverse</code>, <code>column-reverse</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-wrap</code></td>
+                            <td>Controls whether items wrap to new line when they don't fit. nowrap = single line, items shrink (default). wrap = items wrap to new lines. wrap-reverse = wraps in reverse order. Prevents items from being squished.</td>
+                            <td><code>nowrap</code>, <code>wrap</code>, <code>wrap-reverse</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>justify-content</code></td>
+                            <td>Aligns items along the main axis (horizontal if row, vertical if column). flex-start = start of axis. flex-end = end. center = centered. space-between = equal space between items. space-around = space around each. space-evenly = equal space everywhere.</td>
+                            <td><code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-items</code></td>
+                            <td>Aligns items along cross axis (perpendicular to main axis). stretch = fills cross axis (default). flex-start/end = start/end of cross axis. center = centered. baseline = aligned to text baseline. Great for vertical centering.</td>
+                            <td><code>stretch</code>, <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>baseline</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-content</code></td>
+                            <td>Aligns wrapped lines when flex-wrap allows multiple lines. Only works with wrap enabled. Controls spacing between lines. Similar values to justify-content but affects line spacing, not individual items. stretch is default.</td>
+                            <td><code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>stretch</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>gap</code></td>
+                            <td>Creates consistent spacing between flex items. Single value = same gap all around. Two values = row column. Modern alternative to margins. Cleaner than managing individual item margins. Works in flexbox and grid.</td>
+                            <td><code>10px</code>, <code>1rem</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Item Properties</h3>
+        <table>
+          <thead>
+            <tr>
+                            <th scope="col">Property</th>
+              <th scope="col">Description</th>
+                            <th scope="col">Values</th>
+            </tr>
+          </thead>
+          <tbody>
+                        <tr>
+                            <td><code>flex-grow</code></td>
+                            <td>Controls how much item grows to fill available space. 0 = don't grow (default). 1 = grow equally with others. 2 = grow twice as much. Proportionate growth. Items share extra space based on grow values.</td>
+                            <td><code>0</code>, <code>1</code>, <code>2</code> (number)</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-shrink</code></td>
+                            <td>Controls how much item shrinks when space is tight. 0 = don't shrink (stay size). 1 = shrink proportionally (default). Higher = shrink more. Prevents items from getting too small or maintains certain items' size.</td>
+                            <td><code>0</code>, <code>1</code>, <code>2</code> (number)</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-basis</code></td>
+                            <td>Sets initial size before growing/shrinking. auto = use width/height or content size. Specific size (200px) = that initial size. 0 = ignore item's content size. Starting point for flex calculations.</td>
+                            <td><code>auto</code>, <code>200px</code>, <code>0</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>flex</code></td>
+                            <td>Shorthand for flex-grow flex-shrink flex-basis. Most common: flex: 1 (grow equally, fill space). flex: 0 1 auto (don't grow, can shrink, auto size). Saves typing. Use this instead of individual properties.</td>
+                            <td><code>1 1 auto</code>, <code>0 1 200px</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-self</code></td>
+                            <td>Overrides container's align-items for this specific item. Allows individual items to align differently on cross axis. auto = use container's align-items. Same values as align-items but per-item control.</td>
+                            <td><code>auto</code>, <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>stretch</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>order</code></td>
+                            <td>Changes visual order without changing HTML. Lower numbers appear first. Default: 0. Negative numbers work. Useful for responsive reordering. Doesn't affect source order for screen readers.</td>
+                            <td><code>0</code>, <code>-1</code>, <code>1</code> (integer)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <!-- Grid Section -->
+        <section id="css-grid" class="section">
+            <h2>CSS Grid</h2>
+            
+            <article>
+                <h3>Container Properties</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>display: grid</code></td>
+                            <td>Creates a CSS Grid container for 2D layouts (rows and columns). grid = block container, inline-grid = inline. Powerful for complex layouts. Items automatically flow into grid cells. Most flexible layout system.</td>
+                            <td><code>grid</code>, <code>inline-grid</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-columns</code></td>
+                            <td>Defines column structure and sizes. repeat(3, 1fr) = 3 equal columns. 200px 1fr = fixed column + flexible. auto = content-sized. fr = fraction units (share space). Can mix units. Creates column tracks.</td>
+                            <td><code>repeat(3, 1fr)</code>, <code>200px 1fr</code>, <code>auto</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-rows</code></td>
+                            <td>Defines row structure and heights. Similar to columns but for vertical tracks. repeat(2, 100px) = 2 rows, 100px each. auto = content height. 1fr = equal share. Controls row sizing. Can have explicit or implicit rows.</td>
+                            <td><code>repeat(2, 100px)</code>, <code>auto 1fr</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-areas</code></td>
+                            <td>Creates named grid areas using ASCII art syntax. Each string = row, each word = column. "." = empty cell. Items use grid-area to place themselves. Visual way to define layout. Great for page templates.</td>
+                            <td><code>"header header" "main aside"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-gap</code> / <code>gap</code></td>
+                            <td>Creates space between grid items (not around edges). gap is modern shorthand. Two values = row-gap column-gap. Replaces margin hacks. Clean spacing between grid tracks. Works in flexbox too.</td>
+                            <td><code>20px</code>, <code>1rem 2rem</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>justify-items</code></td>
+                            <td>Aligns grid items horizontally within their cells (inline axis). start = left, end = right, center = centered, stretch = fills cell (default). Applies to all items in container. Overrides item's justify-self.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-items</code></td>
+                            <td>Aligns grid items vertically within their cells (block axis). start = top, end = bottom, center = centered, stretch = fills cell (default). Applies to all items. Controls vertical alignment in grid cells.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>justify-content</code></td>
+                            <td>Aligns the entire grid horizontally if grid is smaller than container (inline axis). start/end/center = aligns grid. space-between/around/evenly = distributes space. Only matters when grid doesn't fill container.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>space-between</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-content</code></td>
+                            <td>Aligns the entire grid vertically if grid is smaller than container (block axis). Similar to justify-content but for vertical axis. Controls grid's position within container when tracks don't fill space.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>space-between</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Item Properties</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>grid-column</code></td>
+                            <td>Places item across specific columns. 1 / 3 = from column 1 to 3 (spans 2 columns). span 2 = spans 2 columns from current position. 1 / -1 = entire row. Shorthand for grid-column-start and grid-column-end.</td>
+                            <td><code>1 / 3</code>, <code>span 2</code>, <code>1 / -1</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-row</code></td>
+                            <td>Places item across specific rows. 1 / 3 = from row 1 to 3 (spans 2 rows). span 2 = spans 2 rows. Shorthand for grid-row-start and grid-row-end. Allows items to span multiple rows, creating complex layouts.</td>
+                            <td><code>1 / 3</code>, <code>span 2</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-area</code></td>
+                            <td>Shorthand for row-start / column-start / row-end / column-end. Or use named area from grid-template-areas. Single value = named area (header). Four values = row/column placement. Simplifies positioning.</td>
+                            <td><code>header</code>, <code>1 / 2 / 3 / 4</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>justify-self</code></td>
+                            <td>Overrides container's justify-items for this item. Aligns item horizontally within its cell (inline axis). start = left, end = right, center = centered, stretch = fills width. Per-item control.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>align-self</code></td>
+                            <td>Overrides container's align-items for this item. Aligns item vertically within its cell (block axis). start = top, end = bottom, center = centered, stretch = fills height. Individual item control.</td>
+                            <td><code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code></td>
+                        </tr>
+          </tbody>
+        </table>
+            </article>
+        </section>
+
+        <!-- Responsive Design Section -->
+        <section id="css-responsive" class="section">
+            <h2>Responsive Design</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>@media</code></td>
+                        <td>Applies styles conditionally based on device features (screen size, orientation, resolution). min-width: 768px = styles for screens 768px and wider. Enables responsive design. Breakpoints: mobile (320-767px), tablet (768-1023px), desktop (1024px+).</td>
+                        <td><code>@media (min-width: 768px) { }</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>viewport units</code></td>
+                        <td>Size relative to browser viewport. vw = viewport width (1vw = 1% of width). vh = viewport height (1vh = 1% of height). vmin = smaller of width/height. vmax = larger of width/height. Great for full-screen layouts, hero sections.</td>
+                        <td><code>vw</code> (viewport width), <code>vh</code> (viewport height), <code>vmin</code>, <code>vmax</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>rem</code></td>
+                        <td>Root em - relative to root element's font-size (usually 16px). 1rem = 16px (default). 2rem = 32px. Consistent across all elements regardless of parent. Best for typography. Change root font-size to scale everything.</td>
+                        <td><code>1rem = root font-size</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>em</code></td>
+                        <td>Relative to parent element's font-size. 1em = parent's font-size. If parent is 20px, 1em = 20px. Compounds with nested elements. Good for component-level sizing. Use rem for global, em for local scaling.</td>
+                        <td><code>1em = parent font-size</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>%</code></td>
+                        <td>Percentage relative to parent element's size. 50% width = half of parent's width. Context matters - width % is relative to parent width, height % to parent height. Great for fluid layouts, centering with transforms.</td>
+                        <td><code>width: 50%</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>min-width</code></td>
+                        <td>Sets minimum width element can shrink to. Prevents element from getting smaller than specified. Useful for readable text (min-width: 320px). Works with responsive layouts. Element can grow but won't shrink below this.</td>
+                        <td><code>min-width: 320px</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>max-width</code></td>
+                        <td>Sets maximum width element can grow to. Prevents overly wide content (max-width: 1200px for readable text). Element can shrink but won't exceed this. Common for containers on large screens.</td>
+                        <td><code>max-width: 1200px</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>clamp()</code></td>
+                        <td>Sets responsive value with min, preferred, and max. clamp(min, preferred, max). Preferred value responds to viewport (using vw). Never goes below min or above max. Perfect for fluid typography that stays readable.</td>
+                        <td><code>font-size: clamp(1rem, 2.5vw, 2rem)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="css-forms" class="section">
+            <h2>HTML Forms</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Element/Attribute</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;form&gt;</code></td>
+                        <td>Container for form inputs that get submitted together. action = URL to submit to. method = GET (in URL) or POST (in body). Required for form submission. Groups related inputs. Can validate on submit.</td>
+                        <td><code>&lt;form action="/submit" method="post"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="text"&gt;</code></td>
+                        <td>Single-line text input for names, search, general text. name attribute is required for form submission. Can have placeholder, maxlength, pattern. Most common input type. Browsers may autocomplete.</td>
+                        <td><code>&lt;input type="text" name="username"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="email"&gt;</code></td>
+                        <td>Email input with built-in validation. Mobile keyboards show @ symbol. Browsers validate email format on submit. Shows error if not valid email. Better UX than text input. Use for email addresses.</td>
+                        <td><code>&lt;input type="email" required&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="password"&gt;</code></td>
+                        <td>Password input that hides text as user types (shows dots/circles). Use for sensitive data. Never display password value. Browsers may suggest password managers. Essential for login forms.</td>
+                        <td><code>&lt;input type="password"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="checkbox"&gt;</code></td>
+                        <td>Checkbox for true/false selections. Can check multiple boxes. checked attribute = pre-checked. Use for optional selections, terms acceptance. Group with same name for arrays. Can be required.</td>
+                        <td><code>&lt;input type="checkbox" checked&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="radio"&gt;</code></td>
+                        <td>Radio button for single choice from multiple options. Same name groups them - only one can be selected. Use for mutually exclusive choices (gender, payment method). checked = default selection.</td>
+                        <td><code>&lt;input type="radio" name="choice"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;select&gt;</code></td>
+                        <td>Dropdown menu for selecting from options. &lt;option&gt; elements are choices. User clicks to see options. Good for long lists. Can have optgroups. Use when space is limited or many options. Can be multiple-select.</td>
+                        <td><code>&lt;select&gt;&lt;option&gt;Option&lt;/option&gt;&lt;/select&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;textarea&gt;</code></td>
+                        <td>Multi-line text input for longer content (comments, messages, descriptions). rows/cols set initial size (can resize). No value attribute - text goes between tags. Better than input for paragraphs. Supports rows, cols, maxlength.</td>
+                        <td><code>&lt;textarea rows="4" cols="50"&gt;&lt;/textarea&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;label&gt;</code></td>
+                        <td>Associates text description with form input. for attribute links to input's id. Clicking label focuses input (accessibility). Required for screen readers. Improves UX - larger click target. Always use labels.</td>
+                        <td><code>&lt;label for="name"&gt;Name&lt;/label&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;button&gt;</code></td>
+                        <td>Clickable button for actions. type="submit" submits form. type="button" does nothing (needs JS). type="reset" clears form. Better than &lt;input type="button"&gt; - can contain HTML. Essential for forms.</td>
+                        <td><code>&lt;button type="submit"&gt;Submit&lt;/button&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>required</code></td>
+                        <td>Boolean attribute marking field as mandatory. Form won't submit if empty. Browser shows validation message. Improves UX - prevents incomplete submissions. Use for essential fields. Works with most input types.</td>
+                        <td><code>&lt;input type="text" required&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>placeholder</code></td>
+                        <td>Hint text shown when input is empty. Disappears when user types. Not a substitute for label - always include label. Use for examples ("Enter email"). Light gray text. Don't use for critical instructions.</td>
+                        <td><code>&lt;input placeholder="Enter name"&gt;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section id="accessibility" class="section">
+            <h2>Accessibility</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>alt</code> attribute</td>
+                        <td>Required on all images. Describes image for screen readers and when image fails to load. Empty alt="" for decorative images. Descriptive text for informative images. Critical for accessibility and SEO. Always include meaningful alt text.</td>
+                        <td><code>&lt;img src="photo.jpg" alt="Description"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>aria-label</code></td>
+                        <td>Provides accessible name for element when visible text isn't sufficient. Screen readers announce this. Use for icon-only buttons, decorative elements that need context. Overrides element's text content for screen readers.</td>
+                        <td><code>&lt;button aria-label="Close menu"&gt;X&lt;/button&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>aria-labelledby</code></td>
+                        <td>References another element's id that labels this element. Useful when label is elsewhere in DOM. Connects label to element. Screen readers read referenced element's text. More flexible than aria-label.</td>
+                        <td><code>&lt;div aria-labelledby="heading1"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>aria-describedby</code></td>
+                        <td>References element that provides additional description/help text. Links error messages, hints, instructions to form inputs. Screen readers announce this after main label. Improves understanding of purpose/errors.</td>
+                        <td><code>&lt;input aria-describedby="help-text"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>role</code></td>
+                        <td>ARIA role attribute defines element's purpose to assistive technologies. Use when semantic HTML doesn't exist (div role="button"). Prefer native elements when possible. Helps screen readers understand element function.</td>
+                        <td><code>&lt;div role="navigation"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>tabindex</code></td>
+                        <td>Controls keyboard navigation order. 0 = in natural tab order (make focusable). -1 = focusable via JS but not tab. Positive numbers = specific order (avoid, creates confusion). Use 0 to make divs focusable, -1 to remove from tab order.</td>
+                        <td><code>&lt;button tabindex="0"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>lang</code></td>
+                        <td>Specifies language of element's content. Helps screen readers pronounce correctly. Improves SEO. Use on &lt;html&gt; for page language. Can use on elements for language changes. Required for accessibility.</td>
+                        <td><code>&lt;html lang="en"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>scope</code></td>
+                        <td>Defines table header scope (col, row, colgroup, rowgroup). Tells screen readers which cells header applies to. col = header for column, row = header for row. Essential for accessible data tables.</td>
+                        <td><code>&lt;th scope="col"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>semantic HTML</code></td>
+                        <td>Use meaningful HTML elements that describe content purpose (&lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;header&gt;, &lt;footer&gt;). Better than generic divs. Improves SEO, accessibility, maintainability. Screen readers understand structure.</td>
+                        <td><code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>color contrast</code></td>
+                        <td>WCAG requires sufficient contrast between text and background for readability. 4.5:1 ratio for normal text, 3:1 for large text (18px+). Ensures visually impaired users can read. Use contrast checkers. Critical for accessibility compliance.</td>
+                        <td>4.5:1 for text, 3:1 for large text</td>
+                    </tr>
+                    <tr>
+                        <td><code>focus styles</code></td>
+                        <td>Visible indicators when element is focused via keyboard. Required for keyboard navigation. Use outline or border. Don't remove - customize instead. Helps users see where they are. Essential for accessibility - never set outline: none without replacement.</td>
+                        <td><code>a:focus { outline: 2px solid; }</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>All information referenced from <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> - The official web development resource</p>
+        <p class="footer-note">Last updated: 2024</p>
+    </footer>
+    </body>
+</html>
