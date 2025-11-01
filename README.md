@@ -35,7 +35,7 @@ Simply open `index.html` in any modern web browser.
 
 2. Navigate to the project directory:
    ```bash
-   cd "Build Your Own Cheat Sheet project (Complete)"
+   cd "My-HTML-CSS-Cheetsheet"
    ```
 
 3. Open `index.html` in your browser:
